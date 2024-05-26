@@ -23,8 +23,8 @@ return new class extends Migration
         Schema::create('tbdevices', function (Blueprint $table) {
             $table->id('devices_id')->unique();
             $table->string('devices_name');
-            $table->varchar('location_id');
-            $table->varchar('devices_type_id');
+            $table->string('location_id');
+            $table->string('devices_type_id');
         });
         Schema::create('tbdevices_type', function (Blueprint $table) {
             $table->id('devices_type_id')->unique();
@@ -32,14 +32,13 @@ return new class extends Migration
         });
         Schema::create('tbdevices_data', function (Blueprint $table) {
             $table->id('devices_data_id')->unique();
-            $table->varchar('devices_id');
+            $table->string('devices_id');
             $table->float('data_value');
             $table->timestamp('taken_at');
         });
         Schema::create('tblimits', function (Blueprint $table) {
             $table->id('limits_id')->unique();
-            $table->varchar('limits_id');
-            $table->varchar('devices_id');
+            $table->string('devices_id');
             $table->time('duration');
             $table->float('value');
             $table->boolean('is_active');
@@ -47,9 +46,9 @@ return new class extends Migration
         });
         Schema::create('tblocation', function (Blueprint $table) {
             $table->id('location_id')->unique();
-            $table->varchar('building');
-            $table->varchar('chicken_age');
-            $table->varchar('user_id');
+            $table->string('building');
+            $table->string('chicken_age');
+            $table->string('users_id');
             $table->string('password');
         });
     }
